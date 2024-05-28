@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>hsaf-adapt</artifactId>
+        <groupId>cn.hsa.hsaf.adapt</groupId>
+        <version>1.1.1</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>hsaf-huawei-mq</artifactId>
+    <version>1.0.0</version>
+
+    <!--    对应spring-boot 2.2.x 版本参考: https://spring.io/projects/spring-kafka -->
+    <properties>
+        <!-- 2.1.13版本 2020-11-15 DXX 需要注意-->
+        <spring-kafka.version>2.1.13.RELEASE</spring-kafka.version>
+        <slf4j-api.version>1.7.30</slf4j-api.version>
+        <mypath>${project.basedir}/../..</mypath>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+            <version>${spring-kafka.version}</version>
+        </dependency>
+        <!--kafka-client不用导入,spring-kafka里已经导了-->
+        <!--        具体日志框架由上层决定-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.70</version>
+        </dependency>
+    </dependencies>
+
+</project>

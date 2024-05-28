@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<properties>
+		<maven-compiler.version>3.3</maven-compiler.version>
+		<springframework.version>5.0.13.RELEASE</springframework.version>
+		<fastjson.version>1.2.56</fastjson.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
+		<servlet-api.version>4.0.1</servlet-api.version>
+		<aspectjrt.version>1.8.13</aspectjrt.version>
+		<validation-api.version>2.0.1.Final</validation-api.version>
+	</properties>
+	
+	<artifactId>hsaf-core</artifactId>
+	<groupId>cn.hsa.hsaf.core</groupId>
+	<version>1.2.0</version>
+	<packaging>jar</packaging>
+	<name>hsaf-core</name>
+ 
+	<dependencies>
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson-mapper-asl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${servlet-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectjrt.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>${validation-api.version}</version>
+		</dependency>
+	</dependencies>
+
+	<!-- deploy到医保局的maven私服 -->
+	<distributionManagement>
+		<snapshotRepository>
+			<id>hsaf-snapshots</id>
+			<name>hsaf-snapshots Repository</name>
+			<url>http://192.168.0.122:8081/repository/hsaf-snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>hsaf-releases</id>
+			<name>hsaf-releases Repository</name>
+			<url>http://192.168.0.122:8081/repository/hsaf-releases/</url>
+		</repository>
+	</distributionManagement>
+
+	<build>
+		<finalName>${artifactId}-${version}</finalName>
+		<!--使Maven打包时能打包src目录下的XML文件 -->
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler.version}</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

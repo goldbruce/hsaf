@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cn.hsa.hsaf.adapt</groupId>
+    <artifactId>hsaf-adapt</artifactId>
+    <version>1.1.1</version>
+    <packaging>pom</packaging>
+    <name>hsaf-framework</name>
+    <description>hsaf基础框架构建工程</description>
+
+    <modules>
+        <module>hsaf-adapt-huawei/hsaf-huawei-cache</module>
+        <module>hsaf-adapt-huawei/hsaf-huawei-fsstore</module>
+        <module>hsaf-adapt-huawei/hsaf-huawei-gateway</module>
+        <module>hsaf-adapt-huawei/hsaf-huawei-mq</module>
+        <module>hsaf-adapt-huawei/hsaf-huawei-rpc</module>
+        <module>hsaf-adapt-huawei/hsaf-huawei-springcloud-rpc</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mypath>${project.basedir}</mypath>
+        <active.devtest>false</active.devtest>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.hsa.hsaf.core</groupId>
+            <artifactId>hsaf-core</artifactId>
+            <version>1.2.4</version>
+            <scope>provided</scope>
+            <!--            <scope>system</scope>-->
+            <!--            <systemPath>${mypath}/lib/hsaf-core-1.2.4.jar</systemPath>-->
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.huawei.devtest</groupId>
+                <artifactId>devtestcov-maven-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <activeDevtest>${active.devtest}</activeDevtest>
+                    <reportService>DemoTest</reportService>
+                    <reportVersion>2.1.0</reportVersion>
+                </configuration>
+                <executions><!-- 此节点必须添加 -->
+                    <execution>
+                        <id>insert</id>
+                        <goals>
+                            <goal>dev_insert</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

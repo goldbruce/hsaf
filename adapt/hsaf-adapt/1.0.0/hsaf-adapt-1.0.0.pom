@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cn.hsa.hsaf.adapt</groupId>
+    <artifactId>hsaf-adapt</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>hsaf-framework</name>
+    <description>hsaf 基础框架构建工程</description>
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <!--<distributionManagement>
+        <snapshotRepository>
+            <id>hsaf-snapshots</id>
+            <name>hsaf-snapshots Repository</name>
+            <url>http://www.powersi.com.cn:28081/repository/hsaf-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>hsaf-releases</id>
+            <name>hsaf-releases Repository</name>
+            <url>http://www.powersi.com.cn:28081/repository/hsaf-releases/</url>
+        </repository>
+    </distributionManagement>-->
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>hsaf-snapshots</id>
+            <name>hsaf-snapshots Repository</name>
+            <url>http://www.powersi.com.cn:28081/repository/hsaf-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>hsaf-releases</id>
+            <name>hsaf-releases Repository</name>
+            <url>http://www.powersi.com.cn:28081/repository/hsaf-releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.hsa.hsaf.core</groupId>
+            <artifactId>hsaf-core</artifactId>
+            <version>1.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <modules>
+        <module>hsaf-adapt-ali/hsaf-ali-cache</module>
+        <module>hsaf-adapt-ali/hsaf-ali-mq</module>
+        <module>hsaf-adapt-ali/hsaf-ali-rpc</module>
+        <module>hsaf-adapt-ali/hsaf-ali-fsstore</module>
+        <module>hsaf-adapt-ali/hsaf-ali-gateway</module>
+
+        <module>hsaf-adapt-generic/hsaf-generic-cache</module>
+        <module>hsaf-adapt-generic/hsaf-generic-mq</module>
+        <module>hsaf-adapt-generic/hsaf-generic-rpc</module>
+        <module>hsaf-adapt-generic/hsaf-generic-fsstore</module>
+        <module>hsaf-adapt-generic/hsaf-generic-gateway</module>
+
+        <module>hsaf-adapt-tencent/hsaf-tencent-cache</module>
+        <module>hsaf-adapt-tencent/hsaf-tencent-mq</module>
+        <module>hsaf-adapt-tencent/hsaf-tencent-rpc</module>
+        <module>hsaf-adapt-tencent/hsaf-tencent-fsstore</module>
+        <module>hsaf-adapt-tencent/hsaf-tencent-gateway</module>
+        <module>hsaf-adapt-powercloud/hsaf-powercloud-fsstore</module>
+    </modules>
+</project>

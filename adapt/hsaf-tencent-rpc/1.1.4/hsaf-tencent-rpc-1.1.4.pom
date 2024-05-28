@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.hsa.hsaf.adapt</groupId>
+    <artifactId>hsaf-tencent-rpc</artifactId>
+    <version>1.1.4</version>
+
+    <parent>
+        <groupId>cn.hsa.hsaf.adapt</groupId>
+        <artifactId>hsaf-adapt</artifactId>
+        <version>1.1.1</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+
+    <dependencies>
+
+        <!-- TSF Consul Config Consul分布式配置 -->
+        <dependency>
+            <groupId>com.tencent.tsf</groupId>
+            <artifactId>spring-cloud-tsf-consul-config</artifactId>
+        </dependency>
+        <!-- TSF Consul Discovery Consul服务注册发现 -->
+        <dependency>
+            <groupId>com.tencent.tsf</groupId>
+            <artifactId>spring-cloud-tsf-consul-discovery</artifactId>
+        </dependency>
+        <!-- TSF Sleuth 调用链 -->
+        <dependency>
+            <groupId>com.tencent.tsf</groupId>
+            <artifactId>spring-cloud-tsf-sleuth</artifactId>
+        </dependency>
+        <!-- TSF Auth 权限管理 -->
+        <dependency>
+            <groupId>com.tencent.tsf</groupId>
+            <artifactId>spring-cloud-tsf-auth</artifactId>
+        </dependency>
+        <!-- TSF Rate Limit 限流 -->
+        <dependency>
+            <groupId>com.tencent.tsf</groupId>
+            <artifactId>spring-cloud-tsf-ratelimit</artifactId>
+        </dependency>
+        <!-- TSF Ribbon 客户端路由 -->
+        <dependency>
+            <groupId>com.tencent.tsf</groupId>
+            <artifactId>spring-cloud-tsf-route</artifactId>
+        </dependency>
+        <!-- TSF Logger 日志 -->
+        <dependency>
+            <groupId>com.tencent.tsf</groupId>
+            <artifactId>spring-cloud-tsf-logger</artifactId>
+        </dependency>
+        <!-- TSF swagger -->
+        <dependency>
+            <groupId>com.tencent.tsf</groupId>
+            <artifactId>spring-cloud-tsf-swagger</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.0.11.RELEASE</version>
+        </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.tencent.tsf</groupId>
+                <artifactId>spring-cloud-tsf-dependencies</artifactId>
+                <version>1.18.5-Finchley-RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>

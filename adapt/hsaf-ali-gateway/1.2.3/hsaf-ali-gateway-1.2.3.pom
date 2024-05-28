@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>hsaf-ali-gateway</artifactId>
+    <version>1.2.3</version>
+    <parent>
+        <groupId>cn.hsa.hsaf.adapt</groupId>
+        <artifactId>hsaf-adapt</artifactId>
+        <version>1.1.1</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+
+    <properties>
+        <ons-client.version>1.8.0.Final</ons-client.version>
+        <slf4j-api.version>1.7.26</slf4j-api.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba.csb.sdk</groupId>
+            <artifactId>http-client</artifactId>
+            <version>1.1.5.7</version>
+            <!--
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/http-client-1.1.5.5.jar</systemPath>
+            -->
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun.openservices</groupId>
+            <artifactId>ons-client</artifactId>
+            <version>${ons-client.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+</project>

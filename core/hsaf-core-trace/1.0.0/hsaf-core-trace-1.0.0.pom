@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<properties>
+		<maven-compiler.version>3.3</maven-compiler.version>		
+		<maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<springframework.version>5.0.13.RELEASE</springframework.version>
+		<hsaf-core.version>1.2.0</hsaf-core.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<httpclient.version>4.5.5</httpclient.version>
+	</properties>
+	
+	<artifactId>hsaf-core-trace</artifactId>
+	<groupId>cn.hsa.hsaf.core</groupId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+	<name>hsaf-core-trace</name>
+ 
+	<dependencies>
+		<dependency>
+            <groupId>cn.hsa.hsaf.core</groupId>
+            <artifactId>hsaf-core</artifactId>
+            <version>${hsaf-core.version}</version>
+        </dependency>
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+  			<groupId>org.apache.httpcomponents</groupId>
+  			<artifactId>httpclient</artifactId>
+			<version>${httpclient.version}</version>
+		</dependency>
+	</dependencies>
+
+	<!-- deploy到医保局的maven私服 -->
+	<distributionManagement>
+		<snapshotRepository>
+			<id>hsaf-snapshots</id>
+			<name>hsaf-snapshots Repository</name>
+			<url>http://172.17.23.7:8081/repository/hsaf-snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>hsaf-releases</id>
+			<name>hsaf-releases Repository</name>
+			<url>http://172.17.23.7:8081/repository/hsaf-releases/</url>
+		</repository>
+	</distributionManagement>
+
+	<build>
+		<finalName>${artifactId}-${version}</finalName>
+		<!--使Maven打包时能打包src目录下的XML文件 -->
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler.version}</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>cn.hsa.hsaf.adapt</groupId>
+  <artifactId>hsaf-adapt</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20191022.123552</timestamp>
+      <buildNumber>5</buildNumber>
+    </snapshot>
+    <lastUpdated>20191022123552</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0.0-20191022.123552-5</value>
+        <updated>20191022123552</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
